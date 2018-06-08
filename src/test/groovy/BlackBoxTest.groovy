@@ -61,7 +61,7 @@ class BlackBoxSpec extends Specification {
         when: "cleaning spill"
         def resp = client.cleanSpill(input)
 
-        then: "successful output is as expected"
+        then: "bad request"
         resp.responseBase.h.original.code == 400
     }
 
@@ -77,7 +77,7 @@ class BlackBoxSpec extends Specification {
         when: "cleaning spill"
         def resp = client.cleanSpill(input)
 
-        then: "successful output is as expected"
+        then: "bad request"
         resp.responseBase.h.original.code == 400
     }
 
@@ -97,7 +97,7 @@ class BlackBoxSpec extends Specification {
         when: "cleaning spill"
         def resp = client.cleanSpill(input)
 
-        then: "successful output is as expected"
+        then: "bad request"
         resp.responseBase.h.original.code == 400
     }
 
@@ -118,7 +118,7 @@ class BlackBoxSpec extends Specification {
         when: "cleaning spill"
         def resp = client.cleanSpill(input)
 
-        then: "successful output is as expected"
+        then: "bad request"
         resp.responseBase.h.original.code == 400
     }
 
@@ -165,7 +165,7 @@ class BlackBoxSpec extends Specification {
         resp.responseBase.h.original.code == 400
     }
 
-    def "oil patch out of bounds returns unproccessable entity"() {
+    def "oil patch out of bounds returns unprocessable entity"() {
         given: "input with an out of bounds oil patch"
 
         def input = [
@@ -182,7 +182,7 @@ class BlackBoxSpec extends Specification {
         when: "cleaning spill"
         def resp = client.cleanSpill(input)
 
-        then: "bad request"
+        then: "unprocessable entity"
         resp.responseBase.h.original.code == 422
     }
 }
